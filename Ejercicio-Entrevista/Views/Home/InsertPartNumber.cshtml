@@ -1,0 +1,39 @@
+﻿@model Ejercicio_Entrevista.Models.PartNumbers
+@{
+    ViewData["Title"] = "Add new Part Number";
+}
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<form asp-action="InsertPartNumber" class="form-horizontal">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label class="control-label">Part Number</label>
+        <input asp-for="PartNumber" class="form-control" />
+        <span asp-validation-for="PartNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Customer</label>
+        <input asp-for="FKCustomer" class="form-control" />
+        <span asp-validation-for="FKCustomer" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Available</label>
+        <input asp-for="Available" class="form-control" />
+        <span asp-validation-for="Available" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn bg-primary" />
+
+    </div>
+</form>
+@{
+    if (@TempData["Msg"] != null)
+    {
+        <script>
+
+            alert('@TempData["msg"]')
+        </script>
+
+    }
+}

@@ -1,0 +1,35 @@
+﻿
+@using Ejercicio_Entrevista.Models
+@model IEnumerable<GridViewData>
+@{
+    ViewData["Title"] = "Querys";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-center">
+    <h4>Parts</h4>
+    <hr />
+    <table class="table table-bordered">
+        <tr>
+            <th>PartNumber</th>
+            <th>Customer</th>
+            <th>Building</th>
+            <th>Available</th>
+        </tr>
+        @foreach (GridViewData data in Model)
+        {
+            <tr>
+                <td>@data.PartNumber</td>
+                <td>@data.Customer</td>
+                <td>@data.Building</td>
+                <td>@data.Available</td>
+            </tr>
+        }
+    </table>
+    <div class="text-center">
+        <form method="post" asp-controller="Home" asp-action="ExportToCSV">
+            <input type="submit" value="Export to CSV" />
+
+        </form>
+    </div>
+</div>
